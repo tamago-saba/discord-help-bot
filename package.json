@@ -1,0 +1,16 @@
+{
+  "name": "discord-help-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "dependencies": {
+    "discord.js": "13.7.0",
+    "log4js": "6.5.1"
+  },
+  "scripts": {
+    "test": "node ./src/app.js",
+    "start": "node ./src/app.js"
+  },
+  "author": "tsuoihito",
+  "license": "GPL"
+}
