@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "dependencies": {
     "discord.js": "13.7.0",
-    "log4js": "6.5.1"
+    "log4js": "6.5.1",
+    "nodemw": "0.17.0"
   },
   "scripts": {
     "test": "node ./src/app.js",
