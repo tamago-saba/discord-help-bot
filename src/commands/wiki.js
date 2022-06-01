@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-    wikiEmbed.setTitle(`Seach result: "${args[0]}"`);
+    wikiEmbed.setTitle(`Search result: "${args[0]}"`);
 
     const search = await util.promisify(client.search).bind(client) (args[0]);
 
