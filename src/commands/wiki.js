@@ -32,20 +32,20 @@ module.exports.run = async (bot, message, args) => {
 
     const pages = await Promise.all(search.map(async(result) => {
         const content = await util.promisify(client.getArticle).bind(client) (result.title);
-        return { title: result.title, content: content };
+        return { title: result.title, content: content};
     }))
 
     pages.forEach(page => {
 
-        var content = page.content;
-        if (content.length > 50) {
-            content = `${content.slice(0, 50)}...`;
+        var description = page.content.trim().replace(/\r?\n/g, '');
+        if (description.length > 50) {
+            description = `${description.slice(0, 50)}...`;
         }
 
         wikiEmbed.addField(
             page.title, 
             `https://wiki.tamago-saba.com/wiki/${page.title}\n
-            ${content}`
+            ${description}`
             );
 
     });
