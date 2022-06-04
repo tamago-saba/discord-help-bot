@@ -8,7 +8,7 @@ const addressEmbed = new MessageEmbed()
     );
 
 module.exports.run = async (bot, message, args) => {
-    message.channel.send({ embeds: [addressEmbed] });
+    message.reply({ embeds: [addressEmbed] , allowedMentions: { repliedUser: true } });
 }
 
 module.exports.help = {

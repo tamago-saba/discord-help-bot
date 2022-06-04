@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
 
     wikiEmbed.setDescription(descriptionBase.trim());
 
-    message.channel.send({ embeds: [wikiEmbed] });
+    message.reply({ embeds: [wikiEmbed], allowedMentions: { repliedUser: true } });
 
 }
 
