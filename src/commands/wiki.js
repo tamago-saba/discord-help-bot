@@ -16,18 +16,18 @@ module.exports.run = async (bot, message, args) => {
         .setColor('#24ffff');
 
     if (args.length == 0) {
-        wikiEmbed.setDescription('No arguments specified.');
-        message.channel.send({ embeds: [wikiEmbed] });
+        wikiEmbed.setDescription('キーワードを指定してください');
+        message.reply({ embeds: [wikiEmbed], allowedMentions: { repliedUser: true } });
         return;
     }
 
-    wikiEmbed.setTitle(`Search result: "${args[0]}"`);
+    wikiEmbed.setTitle(`検索結果: "${args[0]}"`);
 
     const search = await util.promisify(client.search).bind(client) (args[0]);
 
     if (search.length == 0) {
-        wikiEmbed.setDescription('No articles found.');
-        message.channel.send({ embeds: [wikiEmbed] });
+        wikiEmbed.setDescription('記事が見つかりませんでした');
+        message.reply({ embeds: [wikiEmbed], allowedMentions: { repliedUser: true } });
         return;
     }
 
@@ -62,5 +62,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 module.exports.help = {
-    name:"wiki"
+    name:"wiki",
+    usage: 'wiki キーワード',
+    description: 'たまご鯖wikiを検索して結果を表示します'
 }

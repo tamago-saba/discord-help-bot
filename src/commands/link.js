@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     const linkEmbed = new MessageEmbed()
         .setColor('#24ffff')
-        .setTitle('tamago-saba links')
+        .setTitle('たまご鯖リンク')
         .setDescription(
             `
             - ${hyperlink('HP', 'https://www.tamago-saba.com')}
@@ -23,5 +23,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: 'link'
+    name: 'link',
+    usage: 'link',
+    description: 'たまご鯖に関するリンクを表示します'
 }

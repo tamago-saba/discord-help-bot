@@ -19,5 +19,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name:"address"
+    name:"address",
+    usage: 'address',
+    description: 'Minecraftサーバーのアドレスを表示します'
 }
