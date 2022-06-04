@@ -1,6 +1,7 @@
 const nodemw = require('nodemw');
 const util = require('util');
 const { MessageEmbed } = require('discord.js');
+const { bold, hyperlink, codeBlock } = require('@discordjs/builders');
 
 
 const client = new nodemw({
@@ -47,7 +48,9 @@ module.exports.run = async (bot, message, args) => {
             description = "No contents found."
         }
 
-        descriptionBase += `\n**[${page.title}](https://wiki.tamago-saba.com/wiki/${page.title})**\n\`\`\`${description}\`\`\``;
+        const articleTitle = bold(hyperlink(page.title, `https://wiki.tamago-saba.com/wiki/${page.title}`));
+        const articleContent = codeBlock(description);
+        descriptionBase += `\n${articleTitle}\n${articleContent}`;
 
     });
 
