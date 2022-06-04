@@ -35,20 +35,23 @@ module.exports.run = async (bot, message, args) => {
         return { title: result.title, content: content};
     }))
 
+    var descriptionBase = '';
+
     pages.forEach(page => {
 
         var description = page.content.trim().replace(/\r?\n/g, '');
         if (description.length > 50) {
             description = `${description.slice(0, 50)}...`;
         }
+        if (description.length == 0) {
+            description = "No contents found."
+        }
 
-        wikiEmbed.addField(
-            page.title, 
-            `https://wiki.tamago-saba.com/wiki/${page.title}\n
-            ${description}`
-            );
+        descriptionBase += `\n**[${page.title}](https://wiki.tamago-saba.com/wiki/${page.title})**\n\`\`\`${description}\`\`\``;
 
     });
+
+    wikiEmbed.setDescription(descriptionBase.trim());
 
     message.channel.send({ embeds: [wikiEmbed] });
 
